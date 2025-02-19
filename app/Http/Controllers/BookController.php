@@ -23,6 +23,8 @@ class BookController extends Controller
             'item' => $item,
         ]);
     }
+
+    
     public function videos($id)
     {
         $item = Book::findOrFail($id);

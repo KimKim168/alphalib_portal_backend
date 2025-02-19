@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\FooterController;
 use App\Http\Controllers\Admin\LinkController;
 use App\Http\Controllers\Admin\DatabaseController;
+use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\WebsiteInfoController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\PromotionController;
@@ -139,6 +140,12 @@ Route::group([
 ], function () {
     Route::resource('isbn_requests', IsbnRequestController::class);
     Route::resource('admin/books', BookController::class);
+    Route::get('admin/videos', [VideoController::class,'index']);
+    Route::get('admin/videos/create', [VideoController::class,'create']);
+    Route::post('admin/videos', [VideoController::class,'store']);
+    Route::get('admin/videos/{id}/edit', [VideoController::class,'edit']);
+    Route::post('admin/videos/{id}', [VideoController::class,'update']);
+    Route::get('admin/videos/{id}', [VideoController::class,'destroy']);
     Route::get('admin/book_images/{id}', [BookController::class, 'images']);
     Route::get('admin/book_videos/{id}', [BookController::class, 'videos']);
     Route::resource('admin/orders', OrderController::class);

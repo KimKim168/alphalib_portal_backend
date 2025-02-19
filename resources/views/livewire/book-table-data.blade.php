@@ -131,11 +131,11 @@
                             Title
                         </div>
                     </th>
-                    <th scope="col" class="px-4 py-3">Price</th>
-                    <th scope="col" class="px-4 py-3">Discount</th>
-                    <th scope="col" class="px-4 py-3 text-center">Category</th>
-                    <th scope="col" class="px-4 py-3">Brand</th>
-                    <th scope="col" class="px-4 py-3 text-center">Status</th>
+                    {{-- <th scope="col" class="px-4 py-3">Price</th>
+                    <th scope="col" class="px-4 py-3">Discount</th> --}}
+                    <th scope="col" class="px-4 py-3 text-start">Category</th>
+                    {{-- <th scope="col" class="px-4 py-3">Brand</th> --}}
+                    {{-- <th scope="col" class="px-4 py-3 text-center">Status</th> --}}
                     <th scope="col" class="py-3 text-center">Action</th>
                 </tr>
             </thead>
@@ -154,17 +154,17 @@
                             </a>
                         </th>
                         <x-table-data value="{{ $item->title }}" />
-                        <x-table-data class="text-red-400 whitespace-nowrap">
+                        {{-- <x-table-data class="text-red-400 whitespace-nowrap">
                             @if ($item->discount > 0)
                                 <span class="text-gray-500 line-through">{{ $item->price }}</span>
                             @endif
                             $
                             {{ $item->price - $item->discount }}
                         </x-table-data>
-                        <x-table-data value="$ {{ $item->discount ?? '0' }}" class="text-red-400" />
+                        <x-table-data value="$ {{ $item->discount ?? '0' }}" class="text-red-400" /> --}}
                         <x-table-data value="{{ $item->category?->name }}" />
-                        <x-table-data class="text-center" value="{{ $item->brand?->name }}" />
-                        <td class="text-center">
+                        {{-- <x-table-data class="text-center" value="{{ $item->brand?->name }}" /> --}}
+                       {{--  <td class="text-center">
                             <button data-modal-target="popup-modal-user-{{ $item->id }}"
                                 data-modal-toggle="popup-modal-user-{{ $item->id }}">
                                 @if ($item->status == 1)
@@ -219,7 +219,7 @@
                                 </div>
                             </div>
 
-                        </td>
+                        </td> --}}
                         {{-- <td class="text-center">
                             @if ($item->status == 1)
                                 <span class="w-4 px-4 py-3 font-semibold text-green-700">
@@ -265,7 +265,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="pb-1" x-data="{ tooltip: false }">
+                                {{-- <div class="pb-1" x-data="{ tooltip: false }">
                                     <!-- Modal toggle -->
                                     <a href="{{ url('admin/book_videos/' . $item->id) }}"
                                         @mouseenter="tooltip = true" @mouseleave="tooltip = false" class="relative">
@@ -290,7 +290,7 @@
                                             Add Video
                                         </div>
                                     </a>
-                                </div>
+                                </div> --}}
 
                                 {{-- <div class="pb-1" x-data="{ tooltip: false }">
                                     <!-- Modal toggle -->

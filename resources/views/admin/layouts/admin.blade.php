@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>CHHAYHOK</title>
+    <title>Supportal Alphalib</title>
 
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
@@ -32,9 +32,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="{{ $websiteInfo->name }}">
-    <link rel="apple-touch-icon" href="{{ asset('assets/images/website_infos/logo.png') }}">
-    <link rel="apple-touch-startup-image" href="{{ asset('assets/images/website_infos/logo.png') }}">
-    <link rel="icon" href="{{ asset('assets/images/website_infos/logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('assets/images/website_infos/alphalib.png') }}">
+    <link rel="apple-touch-startup-image" href="{{ asset('assets/images/website_infos/alphalib.png') }}">
+    <link rel="icon" href="{{ asset('assets/images/website_infos/alphalib.png') }}">
 
     <style>
         .select2-selection {
@@ -152,10 +152,10 @@
                         <span class="sr-only">Toggle sidebar</span>
                     </button>
                     <a href="{{ url('isbn_requests') }}" class="flex items-center justify-center mr-4">
-                        @if ($websiteInfo->image)
+                        {{-- @if ($websiteInfo->image)
                             <img src="{{ asset('assets/images/website_infos/logo192.png') }}" class="h-8 mr-3"
                                 alt="Flowbite Logo" />
-                        @endif
+                        @endif --}}
                         <span
                             class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{ $websiteInfo->name }}</span>
                     </a>
@@ -360,10 +360,10 @@
             aria-label="Sidenav" id="drawer-navigation">
             <a href="{{ url('/') }}"
                 class="flex items-center justify-center p-3.5 border-b dark:border-b-slate-600">
-                @if ($websiteInfo->image)
+                {{-- @if ($websiteInfo->image)
                     <img src="{{ asset('assets/images/website_infos/logo192.png') }}"
                         class="object-cover h-8 mr-3 rounded-full aspect-square" alt="Flowbite Logo" />
-                @endif
+                @endif --}}
                 <span class="self-center text-2xl font-semibold line-clamp-1 dark:text-white">
                     {{ $websiteInfo->name }}
                 </span>
@@ -435,7 +435,7 @@
                                 @click="open = !open; if (open) $nextTick(() => $refs.users.scrollIntoView({ behavior: 'smooth' }))">
                                 <img src="{{ asset('assets/icons/book_categories.png') }}" alt="icon"
                                     class="object-contain w-8 h-8 bg-white rounded dark:bg-gray-200">
-                                <span class="flex-1 text-left ms-3 rtl:text-right whitespace-nowrap">Products</span>
+                                <span class="flex-1 text-left ms-3 rtl:text-right whitespace-nowrap">Services</span>
                                 <svg class="w-3 h-3 transition-transform duration-200 transform"
                                     :class="{ 'rotate-180': open }" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -447,13 +447,19 @@
                                 <li>
                                     <a href="{{ url('admin/books') }}"
                                         class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/books*') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">
-                                        Products
+                                        All Services
                                     </a>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <a href="{{ url('admin/brands') }}"
                                         class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/brands*') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">
                                         Brands
+                                    </a>
+                                </li> --}}
+                                <li>
+                                    <a href="{{ url('admin/videos') }}"
+                                        class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/brands*') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">
+                                        Videos
                                     </a>
                                 </li>
                                 <li>
@@ -573,7 +579,7 @@
                     </li> --}}
                 </ul>
 
-                @can('view setting')
+                {{-- @can('view setting')
                     <ul class="pt-5 pb-5 mt-5 space-y-2 border-t border-gray-200 dark:border-gray-700">
                         <li x-data="{
                             open: {{ request()->is('admin/settings*') ? 'true' : 'false' }},
@@ -604,24 +610,24 @@
                                         Slides
                                     </a>
                                 </li>
-                                {{-- <li>
+                                <li>
                                     <a href="{{ url('admin/settings/menus') }}"
                                         class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/settings/menus*') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">
                                         Menus
                                     </a>
-                                </li> --}}
+                                </li>
                                 <li>
                                     <a href="{{ url('admin/settings/links') }}"
                                         class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/settings/links*') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">
                                         Links
                                     </a>
                                 </li>
-                                {{-- <li>
+                                <li>
                                     <a href="{{ url('admin/settings/features') }}"
                                         class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/settings/features*') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">
                                         Features
                                     </a>
-                                </li> --}}
+                                </li>
                                 <li>
                                     <a href="{{ url('admin/settings/footer/1/edit') }}"
                                         class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/settings/footer*') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">
@@ -650,7 +656,7 @@
                             </ul>
                         </li>
                     </ul>
-                @endcan
+                @endcan --}}
 
             </div>
             <div

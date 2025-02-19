@@ -44,7 +44,7 @@
                         placeholder="Search Items">
                 </div>
                 <div>
-                    <button id="filterDropdownButton" data-dropdown-toggle="filterDropdown"
+                    {{-- <button id="filterDropdownButton" data-dropdown-toggle="filterDropdown"
                         class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg md:w-[200px] focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                         type="button">
                         <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 mr-2 text-gray-400"
@@ -61,8 +61,8 @@
                             <path clip-rule="evenodd" fill-rule="evenodd"
                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
                         </svg>
-                    </button>
-                    <div id="filterDropdown" class="z-10 hidden w-48 p-3 bg-white rounded-lg shadow dark:bg-gray-700">
+                    </button> --}}
+                    {{-- <div id="filterDropdown" class="z-10 hidden w-48 p-3 bg-white rounded-lg shadow dark:bg-gray-700">
                         <h6 class="mb-3 text-sm font-bold text-gray-900 dark:text-white">Filter by Category</h6>
                         <ul class="space-y-2 text-sm" aria-labelledby="filterDropdownButton">
                             <li class="flex items-center">
@@ -86,25 +86,21 @@
                             @endforeach
 
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
             </form>
         </div>
         <div
             class="flex flex-col items-stretch justify-end flex-shrink-0 w-full space-y-2 md:w-auto md:flex-row md:space-y-0 md:items-center md:space-x-3">
-            <div class="flex flex-col items-end text-sm text-gray-500">
-                <span>Total View : {{ $totalReadCount }}</span>
-            </div>
-            @can('create video')
-                <x-primary-button href="{{ route('admin.videos.create') }}">
-                    <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true">
-                        <path clip-rule="evenodd" fill-rule="evenodd"
-                            d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
-                    </svg>
-                    Add Item
-                </x-primary-button>
-            @endcan
+
+            <x-primary-button href="{{ url('admin/videos/create') }}">
+                <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+                    <path clip-rule="evenodd" fill-rule="evenodd"
+                        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
+                </svg>
+                Add Video
+            </x-primary-button>
 
 
             <div class="flex items-center w-full space-x-3 md:w-auto hidden">
@@ -157,11 +153,11 @@
                         </div>
                     </th> --}}
 
-                    <th scope="col" class="px-4 py-3">Author</th>
-                    <th scope="col" class="px-4 py-3">Publisher</th>
-                    <th scope="col" class="px-4 py-3">Category</th>
+                    <th scope="col" class="px-4 py-3">Link</th>
+                    {{-- <th scope="col" class="px-4 py-3">Publisher</th> --}}
+                    {{-- <th scope="col" class="px-4 py-3">Category</th> --}}
                     {{-- <th scope="col" class="px-4 py-3">Sub_Category</th> --}}
-                    <th scope="col" class="px-4 py-3">File</th>
+                    {{-- <th scope="col" class="px-4 py-3">File</th> --}}
                     <th scope="col" class="py-3 text-center">Action</th>
                 </tr>
             </thead>
@@ -180,8 +176,8 @@
                             </a>
                         </th>
                         <x-table-data value="{{ $item->name }}" />
-                        {{-- <x-table-data value="{{ $item->description }}" /> --}}
-                        <x-table-data>
+                         <x-table-data value="{{ $item->link }}" />
+                        {{--<x-table-data>
                             <span
                                 class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300 whitespace-nowrap">
                                 {{ $item->author?->name ? $item->author?->name : 'N/A' }}
@@ -190,7 +186,7 @@
                         <x-table-data value="{{ $item->publisher?->name ? $item->publisher?->name : 'N/A' }}" />
                         <x-table-data
                             value="{{ $item->videoCategory?->name ? $item->videoCategory?->name : 'N/A' }}" />
-                        {{-- <x-table-data value="{{ $item->videoSubCategory?->name }}" /> --}}
+                        <x-table-data value="{{ $item->videoSubCategory?->name }}" />
                         <x-table-data>
                             @if ($item->file)
                                 <span
@@ -203,67 +199,11 @@
                                     Not-Available
                                 </span>
                             @endif
-                        </x-table-data>
+                        </x-table-data> --}}
 
 
                         <td class="px-6 py-4">
                             <div class="flex items-start justify-center gap-3">
-                                @can('update video')
-                                    <div class="pb-1" x-data="{ tooltip: false }">
-                                        <!-- Modal toggle -->
-                                        <a href="{{ url('admin/videos_images/' . $item->id) }}"
-                                            @mouseenter="tooltip = true" @mouseleave="tooltip = false" class="relative">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                class="lucide lucide-plus-circle">
-                                                <circle cx="12" cy="12" r="10" />
-                                                <path d="M8 12h8" />
-                                                <path d="M12 8v8" />
-                                            </svg>
-                                            <!-- View tooltip -->
-                                            <div x-show="tooltip" x-transition:enter="transition ease-out duration-200"
-                                                x-transition:enter-start="opacity-0 transform scale-90"
-                                                x-transition:enter-end="opacity-100 transform scale-100"
-                                                x-transition:leave="transition ease-in duration-75"
-                                                x-transition:leave-start="opacity-100 transform scale-100"
-                                                x-transition:leave-end="opacity-0 transform scale-90"
-                                                class="absolute z-10 inline-block px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm dark:bg-gray-700 whitespace-nowrap"
-                                                style="display: none;">
-                                                Add Images
-                                            </div>
-                                        </a>
-
-                                    </div>
-                                @endcan
-
-                                @can('view video')
-                                    <div class="pb-1" x-data="{ tooltip: false }">
-                                        <!-- Modal toggle -->
-                                        <a href="{{ url('videos/' . $item->id) }}" @mouseenter="tooltip = true"
-                                            @mouseleave="tooltip = false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                class="lucide lucide-eye">
-                                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-                                                <circle cx="12" cy="12" r="3" />
-                                            </svg>
-                                        </a>
-
-                                        <!-- View tooltip -->
-                                        <div x-show="tooltip" x-transition:enter="transition ease-out duration-200"
-                                            x-transition:enter-start="opacity-0 transform scale-90"
-                                            x-transition:enter-end="opacity-100 transform scale-100"
-                                            x-transition:leave="transition ease-in duration-75"
-                                            x-transition:leave-start="opacity-100 transform scale-100"
-                                            x-transition:leave-end="opacity-0 transform scale-90"
-                                            class="absolute z-10 inline-block px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm dark:bg-gray-700"
-                                            style="display: none;">
-                                            View
-                                        </div>
-                                    </div>
-                                @endcan
 
                                 @can('delete video')
                                     <div class="pb-1" x-data="{ tooltip: false }">

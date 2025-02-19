@@ -80,7 +80,7 @@
                             placeholder="Enter Short Description">{{ $short_description }}</textarea>
                         <x-input-error :messages="$errors->get('short_description')" class="mt-2" />
                     </div> --}}
-                    <div class="">
+                    {{-- <div class="">
                         <x-input-label for="price" :value="__('messages.price') . ' ($)'" /><span class="text-red-400">*</span>
                         <x-text-input wire:model='price' id="price" class="block w-full mt-1" type="number"
                             name="price" placeholder='Example : 7$' :value="old('price')" autocomplete="price" />
@@ -116,7 +116,7 @@
                             </div>
                         </div>
                         <x-input-error :messages="$errors->get('brand_id')" class="mt-2" />
-                    </div>
+                    </div> --}}
 
 
                     <div class="grid gap-4 md:col-span-2 md:grid-cols-2">
@@ -171,12 +171,12 @@
 
                     </div>
 
-                    <div class="">
+                    {{-- <div class="">
                         <x-input-label for="post_date" :value="__('Post Date')" />
                         <x-text-input wire:model='post_date' id="post_date" class="block w-full mt-1" type="date"
                             name="post_date"  :value="old('post_date')" autocomplete="post_date" />
                         <x-input-error :messages="$errors->get('post_date')" class="mt-2" />
-                    </div>
+                    </div> --}}
 
                     <div class="col-span-2 mb-5" wire:ignore>
                         <x-input-label for="description" :value="__('Description')" />

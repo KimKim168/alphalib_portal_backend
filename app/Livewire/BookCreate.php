@@ -123,7 +123,7 @@ class BookCreate extends Component
 
         $validated = $this->validate([
             'title' => 'required|string|max:255',
-            'price' => 'required',
+            'price' => 'nullable',
             'discount' => 'nullable',
             'language' => 'nullable|string|max:255',
             'image' => 'required|image|max:2048',

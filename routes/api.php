@@ -1,5 +1,6 @@
 <?php
 
+// use App\Http\Controllers\Admin\VideoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -9,6 +10,7 @@ use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\BrandController;
 use App\Http\Controllers\Api\BookController;
+use App\Http\Controllers\Api\VideoController;
 use App\Http\Controllers\Api\AuthorController;
 use App\Http\Controllers\Api\FeatureController;
 use App\Http\Controllers\Api\PublisherController;
@@ -85,6 +87,13 @@ Route::get('products/{id}', [BookController::class, 'show']);
 Route::get('books_new_arrival', [BookController::class, 'new_arrival']);
 Route::get('books_best_selling', [BookController::class, 'best_selling']);
 Route::get('kid_books', [BookController::class, 'kid_books']);
+// Route::get('videos', [VideoController::class,'index']);
+Route::resource('videos', VideoController::class);
+    // Route::get('videos/create', [VideoController::class,'create']);
+    // Route::post('videos', [VideoController::class,'store']);
+    // Route::get('videos/{id}/edit', [VideoController::class,'edit']);
+    // Route::post('videos/{id}', [VideoController::class,'update']);
+    // Route::get('videos/{id}', [VideoController::class,'destroy']);
 
 Route::get('new_products', [BookController::class, 'new_products']);
 Route::get('category_with_products', [BookController::class, 'category_with_products']);

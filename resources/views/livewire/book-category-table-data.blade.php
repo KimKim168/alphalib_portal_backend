@@ -225,7 +225,7 @@
                         </div>
                     </th>
                     <th scope="col" class="px-4 py-3">Order Index</th>
-                    {{-- <th scope="col" class="px-4 py-3">Name KH</th> --}}
+                    <th scope="col" class="px-4 py-3 text-center">Status</th>
                     <th scope="col" class="py-3 text-center w-[300px]">Action</th>
                 </tr>
             </thead>

@@ -372,10 +372,11 @@
 
     <main class="flex overflow-x-hidden">
         <div class="flex-col items-center justify-center flex-1 hidden gap-6 bg-white md:flex">
-            <h2 class="text-4xl lg:text-6xl text-[#5D54A4] max-w-[60ch] text-center font-bold">
+            <h2 class="text-4xl lg:text-5xl text-[#5D54A4] max-w-[60ch] text-center font-bold">
                 Login
             </h2>
-            <img class="w-[40ch] px-8" src="{{ asset('assets/images/website_infos/logo.png') }}" alt="">
+            {{-- <img class="w-[40ch] px-8" src="{{ asset('assets/images/website_infos/logo.png') }}" alt=""> --}}
+            <p class="text-6xl font-bold">Support Portal <span class="text-[#5D54A4] rounded-full">.</span></p>
         </div>
         <div class="flex flex-col items-center flex-1 gap-4 shrink-0 container_login_form">
             <div class="screen">

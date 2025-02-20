@@ -111,10 +111,12 @@ class BookController extends Controller
         return response()->json($products);
     }
 
-    public function category_with_products()
+    public function category_with_products(Request $request)
     {
-        $categories = BookCategory::with(['books' => function ($sub_query) {
-            $sub_query->orderBy('post_date', 'desc')->orderBy('id', 'desc');
+        $search = $request->search;
+
+        $categories = BookCategory::with(['books' => function ($sub_query) use ($search) {
+            $sub_query->orderBy('post_date', 'desc')->orderBy('id', 'desc')->where('title', 'LIKE', '%' . $search . '%');
         }])
             ->withCount('books')
             ->take(20)

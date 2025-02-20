@@ -52,8 +52,10 @@ class VideoController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $item = Video::findOrFail($id);
+        return response()->json($item);
     }
+
 
     /**
      * Show the form for editing the specified resource.

@@ -143,11 +143,11 @@
             {{-- End Image Upload --}}
         </div>
 
-        {{-- <div class="mb-5" wire:ignore>
+         <div class="mb-5" wire:ignore>
             <x-input-label for="description" :value="__('Description')" />
             <textarea id="description" name="description"></textarea>
         </div>
-        <div class="mb-5" wire:ignore>
+        {{--<div class="mb-5" wire:ignore>
             <x-input-label for="description_kh" :value="__('Description KH')" />
             <textarea id="description_kh" name="description_kh"></textarea>
         </div> --}}
@@ -175,27 +175,27 @@
 
 @script
     <script>
-        // let options = {
-        //     filebrowserImageBrowseUrl: "{{ asset('laravel-filemanager?type=Images') }}",
-        //     filebrowserImageUploadUrl: "{{ asset('laravel-filemanager/upload?type=Images&_token=') }}",
-        //     filebrowserBrowseUrl: "{{ asset('laravel-filemanager?type=Files') }}",
-        //     filebrowserUploadUrl: "{{ asset('laravel-filemanager/upload?type=Files&_token=') }}"
-        // };
+        let options = {
+            filebrowserImageBrowseUrl: "{{ asset('laravel-filemanager?type=Images') }}",
+            filebrowserImageUploadUrl: "{{ asset('laravel-filemanager/upload?type=Images&_token=') }}",
+            filebrowserBrowseUrl: "{{ asset('laravel-filemanager?type=Files') }}",
+            filebrowserUploadUrl: "{{ asset('laravel-filemanager/upload?type=Files&_token=') }}"
+        };
 
-        // $(document).ready(function() {
-        //     const editor = CKEDITOR.replace('description', options);
-        //     editor.on('change', function(event) {
-        //         console.log(event.editor.getData())
-        //         @this.set('description', event.editor.getData(), false);
-        //     })
-        // })
-        // $(document).ready(function() {
-        //     const editor = CKEDITOR.replace('description_kh', options);
-        //     editor.on('change', function(event) {
-        //         console.log(event.editor.getData())
-        //         @this.set('description_kh', event.editor.getData(), false);
-        //     })
-        // })
+        $(document).ready(function() {
+            const editor = CKEDITOR.replace('description', options);
+            editor.on('change', function(event) {
+                console.log(event.editor.getData())
+                @this.set('description', event.editor.getData(), false);
+            })
+        })
+        $(document).ready(function() {
+            const editor = CKEDITOR.replace('description_kh', options);
+            editor.on('change', function(event) {
+                console.log(event.editor.getData())
+                @this.set('description_kh', event.editor.getData(), false);
+            })
+        })
 
 
 

@@ -239,7 +239,7 @@
                         <td class="px-6 py-4">
                             <div class="flex items-start justify-center gap-3">
 
-                                <div class="pb-1" x-data="{ tooltip: false }">
+                                {{-- <div class="pb-1" x-data="{ tooltip: false }">
                                     <!-- Modal toggle -->
                                     <a href="{{ url('admin/book_images/' . $item->id) }}"
                                         @mouseenter="tooltip = true" @mouseleave="tooltip = false" class="relative">
@@ -264,7 +264,7 @@
                                             Add Image
                                         </div>
                                     </a>
-                                </div>
+                                </div> --}}
                                 {{-- <div class="pb-1" x-data="{ tooltip: false }">
                                     <!-- Modal toggle -->
                                     <a href="{{ url('admin/book_videos/' . $item->id) }}"
